@@ -1,0 +1,63 @@
+
+  
+<h1 id="head"> Sign Up</h1>
+
+    <div class="container1">
+        <div class="box1">
+            <form #userlogin="ngForm" (ngSubmit)="signupuser()">
+                <div class="form-group">
+                    <label class="signuplabels" for="Username" id="label1">Username </label> <br>
+                    <input class="form-control,signupinputs" #name="ngModel" required name="name"  [(ngModel)]="user.uname" type="text" id="firstname" placeholder="Username"><br>
+                    
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div *ngIf="name.errors?.required">
+                          Username is required.
+                        </div>
+                      </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="signuplabels"  for="Email">Email</label> <br>
+                    <input class="form-control,signupinputs" #email="ngModel" name="email"  required pattern="^[a-z0-9.%+]+@[a-z0-9._]+\.[a-z]{2,4}"  id="email"name="email"[(ngModel)]="user.email" type="text"  placeholder="Email"><br>
+                    <label for="emailerror" class="errors" id="emailerror"></label>
+                </div>
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <div *ngIf="email.errors?.required">
+                            Email is required.
+                            </div>
+                            <div *ngIf="email.errors?.pattern">
+                                Invalid email pattern.
+                            </div>
+                        </div>
+                <br>
+                <div class="form-group">
+                    <label class="signuplabels"  for="password">Password</label> <br>
+                    <input class="form-control,signupinputs" #password="ngModel" required minlength="6" name="password" id="pwd"  [(ngModel)]="user.password" type="Password"  placeholder="Password"><br>
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <div *ngIf="password.errors?.required">
+                            Password is required.
+                            </div>
+                            <div *ngIf="password.errors?.minlength">
+                                password must be of minimum length 6.
+                            </div>
+                        </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="signuplabels"  for="repeat password">Repeat Password</label><br>
+                    <input class="form-control,signupinputs" #repeatpassword="ngModel" name="repeatpassword" required minlength="6"  id="pwd2" [(ngModel)]="user.repeatpassword"  type="password" placeholder="Repeat Password"><br>
+                    <div *ngIf="repeatpassword.invalid && (repeatpassword.dirty || repeatpassword.touched)">
+                        <div *ngIf="repeatpassword.errors?.required">
+                          Name is required.
+                        </div>
+                        <div *ngIf="password.errors?.minlength">
+                            password must be same.
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-primary" [disabled]="userlogin.form.invalid" type="submit" id="signupbtn">Sign Up</button>
+                
+            </form>
+        </div>
+    </div>

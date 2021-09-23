@@ -1,0 +1,35 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <span class="anchor" id="formLogin"></span>
+
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          
+          <h3 id="login" class="mb-0">Login</h3>
+        </div>
+        <div class="card-body">
+          <form  (ngSubmit)="loginUser()">
+            <div class="uname" >
+              <label for="uname1">Username</label><br>
+              <input type="text" name="uname" [(ngModel)]="user.uname"/>
+           
+              </div>
+            <div class="pwd">
+              <label>Password</label><br>
+              <input type="password" name="password" [(ngModel)]="user.password"/>
+              </div>
+             <br>
+            <button id="btn" type="submit" class="btn btn-success float-right">Login</button>
+          </form>                             
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+
+    </div>
+
+
+  </div>
+</div>

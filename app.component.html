@@ -1,0 +1,25 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to the Library!
+  </h1>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ 
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   
+    <ul class="navbar-nav navbar-right">
+        <a class="nav-link"  routerLink="/">Home</a>
+        <a class="nav-link"  routerLink="/signup"*ngIf="!_auth.loggedIn()"routerLinkActive="active">SignUp</a>
+        <a class="nav-link"  routerLink="/login" *ngIf="!_auth.loggedIn()"routerLinkActive="active">Login</a>
+        <a class="nav-link" style="cursor:pointer"  routerLink="/books" >Books</a>
+        <a class="nav-link" style="cursor:pointer"   routerLink="/authors">Authors</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="loggedUser()"  routerLink="/addbook">Add book</a>
+        <a class="nav-link" style="cursor:pointer" *ngIf="_auth.loggedIn()" (click)="loggedUser1()"  routerLink="/addauthor">Add Author</a>
+        <a class="nav-link" *ngIf="_auth.loggedIn()" (click)="logoutUser()"  routerLink="/logout">LogOut</a>
+    </ul>
+  </div>
+</nav>    
+<router-outlet></router-outlet>            
